@@ -30,10 +30,10 @@ python3 -m http.server 8000
 
 ## Ссылка на опубликованный сайт
 
-*После публикации* замените эту строку на реальный URL вашего сайта, например:
+Сайт уже опубликован на GitHub Pages и доступен по адресу:
 
 ```
-https://username.github.io/first-shower-landing/
+https://coolemm-coder.github.io/first-shower-landing/
 ```
 
 ---
