@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>АртКристал — душевые кабины, перегородки и зеркала</title>
+  <!-- Tailwind CSS via CDN for rapid styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom scroll behaviour for smooth anchor scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Simple modal backdrop animation */
+    .modal-enter {
+      animation: fadeIn 0.2s forwards;
+    }
+    .modal-leave {
+      animation: fadeOut 0.2s forwards;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @keyframes fadeOut {
+      from {opacity: 1;}
+      to {opacity: 0;}
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="text-xl font-bold tracking-wide text-cyan-400">АртКристал</div>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="#portfolio" class="hover:text-cyan-300 transition-colors">Портфолио</a>
+        <a href="#prices" class="hover:text-cyan-300 transition-colors">Цены</a>
+        <a href="#process" class="hover:text-cyan-300 transition-colors">Как работаем</a>
+        <a href="#faq" class="hover:text-cyan-300 transition-colors">FAQ</a>
+        <a href="#contacts" class="hover:text-cyan-300 transition-colors">Контакты</a>
+      </nav>
+      <!-- Mobile menu toggle (simple) -->
+      <button id="menuBtn" class="md:hidden text-cyan-400 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <!-- Mobile nav panel -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-800 bg-gray-950">
+      <nav class="px-4 py-2 flex flex-col space-y-2">
+        <a href="#portfolio" class="hover:text-cyan-300">Портфолио</a>
+        <a href="#prices" class="hover:text-cyan-300">Цены</a>
+        <a href="#process" class="hover:text-cyan-300">Как работаем</a>
+        <a href="#faq" class="hover:text-cyan-300">FAQ</a>
+        <a href="#contacts" class="hover:text-cyan-300">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-24 md:pt-28 pb-16 bg-gradient-to-b from-gray-900 to-gray-950" id="hero">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Индивидуальные душевые кабины,<br class="hidden sm:block">перегородки и зеркала</h1>
+      <p class="text-lg md:text-xl text-gray-300 mb-8">Реализуем ваши идеи из стекла и зеркал. Качество, стиль и надёжность для вашего пространства.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#contacts" class="px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-gray-900 rounded-full font-semibold transition-colors">Рассчитать стоимость</a>
+        <a href="https://t.me/" class="px-6 py-3 border border-cyan-500 hover:bg-cyan-600 hover:text-gray-900 text-cyan-400 rounded-full font-semibold transition-colors">Написать в Telegram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio / Gallery Section -->
+  <section id="portfolio" class="py-16 px-4 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold mb-8 text-center">Наши работы</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="relative group">
+        <img src="./images/shower1.webp" alt="Душевая кабина" class="w-full h-64 object-cover rounded-lg shadow-md cursor-pointer" data-modal-image="./images/shower1.webp">
+      </div>
+      <div class="relative group">
+        <img src="./images/shower2.webp" alt="Стеклянная перегородка" class="w-full h-64 object-cover rounded-lg shadow-md cursor-pointer" data-modal-image="./images/shower2.webp">
+      </div>
+      <div class="relative group">
+        <img src="./images/mirror.webp" alt="Зеркало" class="w-full h-64 object-cover rounded-lg shadow-md cursor-pointer" data-modal-image="./images/mirror.webp">
+      </div>
+    </div>
+  </section>
+
+  <!-- Prices Section -->
+  <section id="prices" class="py-16 bg-gray-900 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center">Цены</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+          <h3 class="text-2xl font-semibold mb-2">Душевые кабины</h3>
+          <p class="text-5xl font-extrabold text-cyan-400 mb-4">от 500 $</p>
+          <ul class="text-gray-300 space-y-1 mb-4">
+            <li>Индивидуальный дизайн</li>
+            <li>Любые размеры и формы</li>
+            <li>Прочное закалённое стекло</li>
+          </ul>
+          <a href="#contacts" class="inline-block px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-gray-900 rounded-full font-semibold">Заказать</a>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+          <h3 class="text-2xl font-semibold mb-2">Стеклянные перегородки</h3>
+          <p class="text-5xl font-extrabold text-cyan-400 mb-4">от 200 $</p>
+          <ul class="text-gray-300 space-y-1 mb-4">
+            <li>Раздвижные и распашные системы</li>
+            <li>Офисные и домашние решения</li>
+            <li>Безопасные крепления</li>
+          </ul>
+          <a href="#contacts" class="inline-block px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-gray-900 rounded-full font-semibold">Заказать</a>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+          <h3 class="text-2xl font-semibold mb-2">Зеркала</h3>
+          <p class="text-5xl font-extrabold text-cyan-400 mb-4">от 100 $</p>
+          <ul class="text-gray-300 space-y-1 mb-4">
+            <li>Любые размеры и формы</li>
+            <li>Подсветка и фаска</li>
+            <li>Установка и крепёж</li>
+          </ul>
+          <a href="#contacts" class="inline-block px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-gray-900 rounded-full font-semibold">Заказать</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="process" class="py-16 px-4 bg-gray-950">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center">Как мы работаем</h2>
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="flex flex-col items-center text-center p-4">
+          <div class="h-12 w-12 mb-3 flex items-center justify-center rounded-full bg-cyan-500 text-gray-900 font-bold">1</div>
+          <h3 class="font-semibold mb-1">Консультация</h3>
+          <p class="text-sm text-gray-300">Звонок или выезд для замера, обсуждение пожеланий.</p>
+        </div>
+        <div class="flex flex-col items-center text-center p-4">
+          <div class="h-12 w-12 mb-3 flex items-center justify-center rounded-full bg-cyan-500 text-gray-900 font-bold">2</div>
+          <h3 class="font-semibold mb-1">Проект и расчет</h3>
+          <p class="text-sm text-gray-300">Разрабатываем проект, уточняем стоимость и сроки.</p>
+        </div>
+        <div class="flex flex-col items-center text-center p-4">
+          <div class="h-12 w-12 mb-3 flex items-center justify-center rounded-full bg-cyan-500 text-gray-900 font-bold">3</div>
+          <h3 class="font-semibold mb-1">Производство</h3>
+          <p class="text-sm text-gray-300">Изготавливаем изделие на собственном производстве.</p>
+        </div>
+        <div class="flex flex-col items-center text-center p-4">
+          <div class="h-12 w-12 mb-3 flex items-center justify-center rounded-full bg-cyan-500 text-gray-900 font-bold">4</div>
+          <h3 class="font-semibold mb-1">Установка</h3>
+          <p class="text-sm text-gray-300">Монтаж, проверка, уборка и гарантия на изделие.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advantages Section -->
+  <section id="advantages" class="py-16 px-4 bg-gray-900">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center">Почему мы?</h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="flex flex-col items-center text-center p-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-cyan-500 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.656 0 3-1.344 3-3S13.656 2 12 2s-3 1.344-3 3 1.344 3 3 3zm0 0v3m0 0c-2.5 0-4.5 2-4.5 4.5 0 .943.473 1.875 1.5 2.5S9.5 19 9.5 19m0 0H8m-2 0h2m-2 0h2m12 0h2m-2 0h2m-2 0h2m-1.5-4c1.027-.625 1.5-1.557 1.5-2.5C20.5 13.5 18.5 11.5 16 11.5m0 0V8"/></svg>
+          <h3 class="font-semibold mb-1">Индивидуальный подход</h3>
+          <p class="text-sm text-gray-300">Каждый заказ — уникальный проект, созданный по вашим желаниям.</p>
+        </div>
+        <div class="flex flex-col items-center text-center p-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-cyan-500 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <h3 class="font-semibold mb-1">Надежные материалы</h3>
+          <p class="text-sm text-gray-300">Используем только закалённое стекло и проверенную фурнитуру.</p>
+        </div>
+        <div class="flex flex-col items-center text-center p-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-cyan-500 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18v18H3z"/></svg>
+          <h3 class="font-semibold mb-1">Два года гарантии</h3>
+          <p class="text-sm text-gray-300">Мы уверены в качестве работы и предоставляем расширенную гарантию.</p>
+        </div>
+        <div class="flex flex-col items-center text-center p-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-cyan-500 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <h3 class="font-semibold mb-1">Быстрые сроки</h3>
+          <p class="text-sm text-gray-300">Изготавливаем и устанавливаем быстро, соблюдая сроки и качество.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-16 px-4 bg-gray-950">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center">Часто задаваемые вопросы</h2>
+      <div class="space-y-4">
+        <!-- Question 1 -->
+        <details class="bg-gray-900 rounded-lg p-4">
+          <summary class="cursor-pointer text-cyan-400 font-medium">Сколько времени занимает изготовление?</summary>
+          <p class="mt-2 text-gray-300">В среднем, изготовление и установка занимают от 7 до 14 дней в зависимости от сложности проекта.</p>
+        </details>
+        <!-- Question 2 -->
+        <details class="bg-gray-900 rounded-lg p-4">
+          <summary class="cursor-pointer text-cyan-400 font-medium">Вы делаете бесплатный замер?</summary>
+          <p class="mt-2 text-gray-300">Да, выезд специалиста для замера и консультации — бесплатно по Минску и области.</p>
+        </details>
+        <!-- Question 3 -->
+        <details class="bg-gray-900 rounded-lg p-4">
+          <summary class="cursor-pointer text-cyan-400 font-medium">Можно ли выбрать цвет фурнитуры?</summary>
+          <p class="mt-2 text-gray-300">Мы предлагаем различные варианты фурнитуры: хром, золото, чёрный матовый и др.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacts Section -->
+  <section id="contacts" class="py-16 px-4 bg-gray-900">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Свяжитесь с нами</h2>
+      <p class="text-gray-300 mb-4">Работаем в Минске и по области. Оставьте заявку или напишите в мессенджер.</p>
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-6">
+        <a href="https://t.me/" class="px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-gray-900 rounded-full font-semibold">Telegram</a>
+        <a href="tel:+375000000000" class="px-6 py-3 border border-cyan-500 hover:bg-cyan-600 hover:text-gray-900 text-cyan-400 rounded-full font-semibold">+375 (00) 000‑00‑00</a>
+      </div>
+      <p class="text-gray-500 text-sm">Минск и область</p>
+    </div>
+  </section>
+
+  <!-- Modal Overlay for Gallery -->
+  <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+    <div class="relative max-w-3xl mx-auto">
+      <img id="modalImage" src="" alt="Просмотр изображения" class="max-h-[80vh] rounded shadow-lg">
+      <button id="closeModal" class="absolute top-2 right-2 text-gray-200 hover:text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-6 bg-gray-950 border-t border-gray-800 text-center text-gray-500 text-sm">
+    <p>© АртКристал <span id="year"></span>. Обновлено: <span id="updated"></span></p>
+  </footer>
+
+  <!-- Scripts for mobile menu, modal and date -->
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Gallery modal logic
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeModal = document.getElementById('closeModal');
+    // Open modal when image clicked
+    document.querySelectorAll('[data-modal-image]').forEach(img => {
+      img.addEventListener('click', () => {
+        const src = img.getAttribute('data-modal-image');
+        modalImg.src = src;
+        modal.classList.remove('hidden');
+        modal.classList.add('modal-enter');
+      });
+    });
+    // Close modal
+    closeModal.addEventListener('click', () => {
+      modal.classList.add('modal-leave');
+      // Wait for animation then hide
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('modal-leave');
+      }, 200);
+    });
+    // Close modal on outside click
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal.click();
+      }
+    });
+    // Set current year and updated date
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('updated').textContent = new Date().toLocaleDateString('ru-RU');
+  </script>
+</body>
+</html>
